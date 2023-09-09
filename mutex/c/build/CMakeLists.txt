@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(mutex_example_c)
+add_executable(run_mutex_example_c ../main.c)
+target_compile_options(run_mutex_example_c PRIVATE -Wall -Werror)
+target_link_libraries(run_mutex_example_c pthread)
+set_target_properties(run_mutex_example_c PROPERTIES RUNTIME_OUTPUT_DIRECTORY ../../)
