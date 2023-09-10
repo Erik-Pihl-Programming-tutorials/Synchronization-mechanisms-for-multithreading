@@ -1,9 +1,16 @@
+/********************************************************************************
+ * @brief Demonstration of mutex in C++.
+ ********************************************************************************/
 #include <iostream>
 #include <thread>
 #include <chrono>
 #include <mutex>
 #include <cstdint>
 
+/********************************************************************************
+ * @note Anonymous namespaces provides static (internal) linkage, just like the
+ *       static keyword.
+ ********************************************************************************/
 namespace {
 
 /********************************************************************************
@@ -30,8 +37,7 @@ inline void Delay_ms(const uint16_t delay_time_ms) {
  * @brief Runs the calling thread continuously by printing the thread ID with
  *        specified frequency. 
  * 
- * @note  
- *        A mutex is used to make sure that only one thread has access to the
+ * @note  A mutex is used to make sure that only one thread has access to the
  *        terminal at any given time. We wait 10 ms after performing a print 
  *        before unlocking the mutex to make sure that the print is completed 
  *        before making the terminal accessible to other threads.
@@ -58,8 +64,7 @@ void RunThread(const uint16_t thread_id, const uint16_t print_interval_ms) {
 /********************************************************************************
  * @brief Creates and runs two threads with different parameters.
  * 
- * @note
- *        When creating threads, specify the starting routine and it's input
+ * @note  When creating threads, specify the starting routine and it's input
  *        arguments. Synchronize the threads by calling the join function.
  ********************************************************************************/
 int main(void) {
